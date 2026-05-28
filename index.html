@@ -1,0 +1,1839 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Steeve BARTHEL — Portfolio BUT MMI</title>
+    <meta name="description" content="Portfolio de Steeve BARTHEL, étudiant en BUT MMI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --kraft-1: #e8dcc0;
+            --kraft-2: #d9c89e;
+            --kraft-3: #c4ad7a;
+            --kraft-4: #a88f5d;
+            --ink:     #2b1810;
+            --ink-soft:#4a2f1f;
+            --ink-faded:#8a6f55;
+            --bordeaux:#6b1a2a;
+            --bord-d: #4a0f1c;
+            --bord-l: #8b2235;
+            --or:     #b8943c;
+            --or-l:   #d4a84a;
+            --or-d:   #8a6a20;
+            --or-deep:#5a4310;
+            --paper:  #f0e4c8;
+        }
+        html.dark {
+            --kraft-1: #1a0c08;
+            --kraft-2: #221008;
+            --kraft-3: #2a1410;
+            --kraft-4: #3a1c14;
+            --ink:     #e8d4b8;
+            --ink-soft:#d4b89e;
+            --ink-faded:#a08a6e;
+            --bordeaux:#c0364e;
+            --bord-d: #8a1a2a;
+            --bord-l: #e0485e;
+            --or:     #b8943c;
+            --or-l:   #d4a84a;
+            --or-d:   #8a6a20;
+            --or-deep:#5a4310;
+            --paper:  #1c0e08;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { overflow-x: hidden; }
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            position: relative;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        /* Texture papier carton */
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image:
+                radial-gradient(ellipse at 15% 25%, rgba(168,143,93,0.18) 0%, transparent 35%),
+                radial-gradient(ellipse at 85% 75%, rgba(168,143,93,0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(74,47,31,0.12) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0.15 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(127deg, transparent 0px, transparent 2px, rgba(74,47,31,0.025) 2px, rgba(74,47,31,0.025) 3px),
+                repeating-linear-gradient(53deg, transparent 0px, transparent 3px, rgba(74,47,31,0.02) 3px, rgba(74,47,31,0.02) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        html.dark body::before {
+            background-image:
+                radial-gradient(ellipse at 15% 25%, rgba(192,54,78,0.1) 0%, transparent 35%),
+                radial-gradient(ellipse at 85% 75%, rgba(192,54,78,0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0,0,0,0.5) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.8 0 0 0 0 0.5 0 0 0 0 0.3 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(127deg, transparent 0px, transparent 2px, rgba(192,54,78,0.02) 2px, rgba(192,54,78,0.02) 3px);
+        }
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(58,28,20,0.4) 0%, transparent 6%),
+                radial-gradient(circle at 100% 0%, rgba(58,28,20,0.4) 0%, transparent 6%),
+                radial-gradient(circle at 0% 100%, rgba(58,28,20,0.4) 0%, transparent 6%),
+                radial-gradient(circle at 100% 100%, rgba(58,28,20,0.4) 0%, transparent 6%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--bordeaux); text-decoration: none; }
+
+        .skip-link {
+            position: absolute; top: -100px; left: 1rem;
+            background: var(--bordeaux); color: var(--paper);
+            padding: 0.6rem 1.2rem; z-index: 9999;
+        }
+        .skip-link:focus { top: 1rem; }
+
+        /* Cadre baroque doré */
+        .frame-svg {
+            position: fixed; inset: 8px;
+            pointer-events: none; z-index: 50;
+            width: calc(100vw - 16px); height: calc(100vh - 16px);
+        }
+        .frame-svg svg {
+            width: 100%; height: 100%;
+            filter: drop-shadow(0 0 12px rgba(184,148,60,0.25));
+        }
+        html.dark .frame-svg svg { filter: drop-shadow(0 0 18px rgba(192,54,78,0.35)); }
+
+        /* Header */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.1rem 3rem;
+            background: rgba(240,228,200,0.92);
+            border-bottom: 1px double var(--or-d);
+            backdrop-filter: blur(6px);
+        }
+        html.dark header {
+            background: rgba(28,14,8,0.94);
+            border-bottom-color: var(--bord-d);
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            left: 8%; right: 8%; bottom: -6px;
+            height: 4px;
+            background:
+                linear-gradient(90deg, transparent 0%, var(--or-d) 20%, var(--or-l) 50%, var(--or-d) 80%, transparent 100%),
+                linear-gradient(180deg, transparent, transparent);
+            background-size: 100% 1px, 100% 1px;
+            background-position: 0 0, 0 3px;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+
+        .logo-mark {
+            display: flex; align-items: center; gap: 0.8rem;
+            text-decoration: none;
+        }
+        .logo-mark svg { width: 38px; height: 38px; }
+        .logo-text {
+            font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 900;
+            color: var(--ink);
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+        .logo-text small {
+            display: block; font-family: 'IM Fell English', serif;
+            font-size: 0.7rem; letter-spacing: 4px;
+            color: var(--or-d); font-weight: 400;
+            margin-top: 3px; font-style: italic;
+        }
+
+        .header-right { display: flex; align-items: center; gap: 1rem; }
+
+        nav ul { display: flex; gap: 0.3rem; list-style: none; }
+        nav a {
+            position: relative;
+            padding: 0.5rem 1rem;
+            color: var(--ink-soft);
+            font-family: 'IM Fell English SC', 'IM Fell English', serif;
+            font-size: 0.92rem; letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: color 0.25s;
+        }
+        nav a::before {
+            content: ''; position: absolute;
+            left: 50%; bottom: 0; width: 0; height: 1px;
+            background: var(--bordeaux);
+            transition: width 0.3s, left 0.3s;
+        }
+        nav a:hover, nav a.actif { color: var(--bordeaux); }
+        nav a:hover::before, nav a.actif::before { width: 70%; left: 15%; }
+        html.dark nav a:hover, html.dark nav a.actif { color: var(--bord-l); }
+
+        .theme-btn, .burger {
+            background: transparent;
+            border: 1px solid var(--or-d);
+            width: 38px; height: 38px;
+            color: var(--ink);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            transition: all 0.25s;
+        }
+        .theme-btn:hover {
+            background: var(--bordeaux); color: var(--paper); border-color: var(--bordeaux);
+        }
+        .theme-icon { width: 20px; height: 20px; transition: transform 0.4s, opacity 0.3s; }
+        .icon-sun { display: none; }
+        html.dark .icon-moon { display: none; }
+        html.dark .icon-sun { display: block; }
+        .theme-btn:hover .theme-icon { transform: rotate(15deg); }
+        .burger { display: none; flex-direction: column; gap: 4px; padding: 8px; }
+        .burger span {
+            width: 18px; height: 1.5px;
+            background: var(--ink);
+            transition: all 0.3s;
+        }
+
+        .overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(43,24,16,0.6); z-index: 90;
+        }
+        .overlay.show { display: block; }
+        html.dark .overlay { background: rgba(0,0,0,0.8); }
+
+        main {
+            max-width: 1080px; margin: 0 auto;
+            padding: 0 3rem;
+            position: relative; z-index: 1;
+        }
+        section { padding: 4rem 0; position: relative; }
+
+        /* HERO */
+        #hero {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2.5rem;
+            min-height: 80vh;
+            align-items: center;
+            padding-top: 3rem;
+            position: relative;
+        }
+        .hero-banner {
+            /* Sort du flow du grid — positionné au-dessus de .hero-center */
+            position: absolute;
+            top: 3rem;          /* aligne avec le début de .hero-center */
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-family: 'IM Fell English SC', 'IM Fell English', serif;
+            font-size: 0.95rem;
+            letter-spacing: 8px;
+            color: var(--ink-soft);
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 2;
+        }
+        .hero-banner::before, .hero-banner::after {
+            content: '';
+            flex: 0 0 80px;
+            height: 1px;
+        }
+        .hero-banner::before { background: linear-gradient(90deg, transparent, var(--or-d)); }
+        .hero-banner::after  { background: linear-gradient(90deg, var(--or-d), transparent); }
+        /* On retire l'espace que le banner prenait dans le grid */
+        .hero-banner + .hero-left,
+        .hero-banner + * { /* le premier vrai élément grid après le banner doit pas avoir de gap supplémentaire */ }
+
+        .hero-left { text-align: right; padding-top: 4rem; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
+        .hero-right { text-align: left; padding-top: 4rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+        .hero-left .label, .hero-right .label {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.4rem; font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 4px;
+            margin-bottom: 0.3rem;
+        }
+        .hero-left .sublabel, .hero-right .sublabel {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ink);
+            letter-spacing: 2px;
+            line-height: 1.7;
+            text-transform: none;
+        }
+
+        .hero-center {
+            text-align: center;
+            min-width: 320px;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            padding-top: 2.5rem; /* laisse de la place pour le banner "PORTFOLIO" au-dessus */
+        }
+        .hero-name {
+            font-family: 'Playfair Display', 'Cinzel Decorative', serif;
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: 2px;
+            color: var(--ink);
+            text-shadow: 2px 2px 0 rgba(74,47,31,0.1);
+            margin-bottom: 0.3rem;
+        }
+        .hero-name .firstname {
+            display: block;
+            font-size: 0.85em;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--ink-soft);
+            margin-bottom: -0.2em;
+            letter-spacing: 4px;
+        }
+        html.dark .hero-name { text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+        html.dark .hero-name .firstname { color: var(--bord-l); }
+
+        .hero-tagline {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--bordeaux);
+            letter-spacing: 5px;
+            margin-top: 0.3rem;
+            margin-bottom: 0.6rem;
+        }
+        .hero-divider {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin: 0.4rem auto;
+            color: var(--or-d);
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+        }
+        .hero-divider::before, .hero-divider::after {
+            content: '';
+            width: 60px; height: 1px;
+            background: var(--or-d);
+        }
+
+        .hero-portrait-wrap {
+            margin: 0.4rem auto 0.6rem;
+            width: 200px;
+        }
+        .hero-portrait-wrap img {
+            width: 100%; height: 240px;
+            object-fit: cover;
+            filter: sepia(40%) contrast(0.95) brightness(0.95);
+            border: 3px solid var(--or);
+            box-shadow:
+                0 0 0 1px var(--or-d),
+                0 0 0 5px var(--paper),
+                0 0 0 6px var(--or-d),
+                5px 5px 20px rgba(43,24,16,0.4);
+        }
+        html.dark .hero-portrait-wrap img {
+            border-color: var(--bordeaux);
+            box-shadow:
+                0 0 0 1px var(--bord-d),
+                0 0 0 5px var(--paper),
+                0 0 0 6px var(--bord-d),
+                5px 5px 20px rgba(0,0,0,0.6);
+            filter: sepia(20%) contrast(0.95) brightness(0.8);
+        }
+
+        .hero-quote {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--ink-soft);
+            max-width: 320px;
+            margin: 0.5rem auto;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex; gap: 1rem; justify-content: center;
+            margin-top: 1.5rem; flex-wrap: wrap;
+        }
+        .btn {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px; text-transform: uppercase;
+            padding: 0.85rem 1.6rem;
+            transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            cursor: pointer; border: none;
+            position: relative;
+        }
+        .btn-fill {
+            background: var(--bordeaux);
+            color: var(--paper);
+            border: 1px solid var(--bord-d);
+        }
+        .btn-fill::before {
+            content: ''; position: absolute;
+            inset: 3px;
+            border: 1px solid rgba(240,228,200,0.3);
+            pointer-events: none;
+        }
+        .btn-fill:hover {
+            background: var(--bord-d);
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--bord-d);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--bordeaux);
+            border: 1px solid var(--bordeaux);
+        }
+        .btn-outline:hover {
+            background: var(--bordeaux); color: var(--paper);
+        }
+
+        .hero-stats {
+            grid-column: 1 / -1;
+            display: flex; justify-content: center; gap: 4rem;
+            margin-top: 2.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--or-d);
+            border-bottom: 1px solid var(--or-d);
+            position: relative;
+        }
+        .hero-stats::before, .hero-stats::after {
+            content: '✦';
+            position: absolute;
+            left: 50%;
+            color: var(--or-d);
+            background: var(--paper);
+            padding: 0 8px;
+            font-size: 0.8rem;
+        }
+        .hero-stats::before { top: -8px; transform: translateX(-50%); }
+        .hero-stats::after { bottom: -8px; transform: translateX(-50%); }
+
+        .stat {
+            text-align: center;
+            font-family: 'IM Fell English', serif;
+        }
+        .stat-num {
+            display: block;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            font-style: italic;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        .ornament {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0 2rem;
+            color: var(--or-d);
+        }
+        .ornament svg { width: 60px; height: 24px; opacity: 0.8; }
+        .ornament .glyph {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.3rem; letter-spacing: 10px;
+            color: var(--or-d);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header .roman {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            color: var(--or-d);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--ink);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+        .section-header .motto {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink-soft);
+            letter-spacing: 3px;
+        }
+        .section-flourish {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin-top: 1rem;
+        }
+        .section-flourish::before, .section-flourish::after {
+            content: ''; width: 80px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--or-d), transparent);
+        }
+        .section-flourish svg { width: 30px; height: 16px; color: var(--bordeaux); }
+
+        /* ══ GALERIE PEINTE PAR PINCEAU ══ */
+        .paint-gallery {
+            grid-column: 1 / -1;
+            margin-top: 3rem;
+            display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+        }
+        .paint-gallery-label {
+            font-family: 'IM Fell English SC', 'IM Fell English', serif;
+            font-size: 0.78rem;
+            letter-spacing: 6px;
+            color: var(--or-d);
+            font-style: italic;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .paint-gallery-label::before, .paint-gallery-label::after {
+            content: '';
+            display: block;
+            width: 50px; height: 1px;
+            background: var(--or-d);
+            opacity: 0.6;
+        }
+        .paint-stage {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 1 / 1;
+            background: var(--paper);
+            border: 2px solid var(--or);
+            box-shadow:
+                0 0 0 1px var(--or-d),
+                0 0 0 6px var(--paper),
+                0 0 0 7px var(--or-d),
+                6px 6px 0 var(--or-d),
+                10px 10px 30px rgba(43,24,16,0.25);
+            overflow: hidden;
+        }
+        html.dark .paint-stage {
+            border-color: var(--bordeaux);
+            box-shadow:
+                0 0 0 1px var(--bord-d),
+                0 0 0 6px var(--paper),
+                0 0 0 7px var(--bord-d),
+                6px 6px 0 var(--bord-d),
+                10px 10px 30px rgba(0,0,0,0.6);
+        }
+        /* Texture toile sous l'image */
+        .paint-stage::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent 0px, transparent 2px, rgba(74,47,31,0.04) 2px, rgba(74,47,31,0.04) 3px),
+                repeating-linear-gradient(-45deg, transparent 0px, transparent 2px, rgba(74,47,31,0.04) 2px, rgba(74,47,31,0.04) 3px);
+            opacity: 0.5; z-index: 0;
+        }
+        .paint-canvas {
+            position: absolute; inset: 0;
+            z-index: 1;
+        }
+        .paint-img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 4s cubic-bezier(0.55, 0.1, 0.45, 0.95), opacity 0.4s;
+        }
+        .paint-img.painting {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+        .paint-img.fade-out {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        /* Le pinceau qui se déplace pendant la peinture */
+        .paint-brush {
+            position: absolute;
+            top: 0; left: 0;
+            width: 70px; height: 100%;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: opacity 0.3s;
+        }
+        .paint-brush.active {
+            opacity: 1;
+            animation: brushSweep 4s cubic-bezier(0.55, 0.1, 0.45, 0.95) forwards;
+        }
+        @keyframes brushSweep {
+            0%   { left: 0%;    transform: translateX(-50%) rotate(-12deg); }
+            25%  { transform: translateX(-50%) rotate(-8deg); }
+            50%  { transform: translateX(-50%) rotate(-14deg); }
+            75%  { transform: translateX(-50%) rotate(-10deg); }
+            100% { left: 100%;  transform: translateX(-50%) rotate(-12deg); }
+        }
+        .paint-brush svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 8px rgba(43,24,16,0.4)); }
+        /* Trace de peinture qui suit le pinceau (subtile traînée verticale) */
+        .paint-trace {
+            position: absolute;
+            top: 0; left: 0;
+            width: 8px; height: 100%;
+            z-index: 4;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(184,148,60,0.15) 30%,
+                rgba(107,26,42,0.25) 60%,
+                rgba(184,148,60,0.15) 100%);
+            filter: blur(2px);
+        }
+        .paint-trace.active {
+            opacity: 1;
+            animation: traceSweep 4s cubic-bezier(0.55, 0.1, 0.45, 0.95) forwards;
+        }
+        @keyframes traceSweep {
+            0%   { left: 0%;   opacity: 0; }
+            8%   { opacity: 0.7; }
+            92%  { opacity: 0.7; }
+            100% { left: 100%; opacity: 0; }
+        }
+        html.dark .paint-trace {
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(192,54,78,0.3) 30%,
+                rgba(184,148,60,0.2) 60%,
+                rgba(192,54,78,0.3) 100%);
+        }
+        /* Petite légende du visuel courant */
+        .paint-caption {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+            min-height: 1.4em;
+            text-align: center;
+            transition: opacity 0.3s;
+        }
+        .paint-caption.fading { opacity: 0; }
+        .paint-dots {
+            display: flex; gap: 0.6rem; margin-top: 0.3rem;
+        }
+        .paint-dot {
+            width: 9px; height: 9px;
+            border: 1px solid var(--or-d);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .paint-dot.active { background: var(--bordeaux); border-color: var(--bordeaux); transform: scale(1.15); }
+        .paint-dot:hover { border-color: var(--bordeaux); }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .skill-card {
+            position: relative;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, var(--kraft-1) 0%, var(--kraft-2) 100%);
+            border: 1px solid var(--or-d);
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.4),
+                3px 3px 0 var(--or-d),
+                6px 6px 20px rgba(43,24,16,0.15);
+        }
+        html.dark .skill-card {
+            background: linear-gradient(135deg, var(--kraft-2) 0%, var(--kraft-3) 100%);
+            border-color: var(--bord-d);
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.15),
+                3px 3px 0 var(--bord-d),
+                6px 6px 20px rgba(0,0,0,0.4);
+        }
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px dashed var(--or-d);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        html.dark .skill-card::before { border-color: var(--bord-l); }
+        .skill-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.4),
+                5px 5px 0 var(--or-d),
+                10px 10px 30px rgba(43,24,16,0.25);
+        }
+        html.dark .skill-card:hover {
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.2),
+                5px 5px 0 var(--bord-d),
+                10px 10px 30px rgba(192,54,78,0.2);
+        }
+
+        .skill-icon-wrap {
+            width: 70px; height: 70px;
+            margin: 0 auto 1rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--paper);
+            border: 1px solid var(--or-d);
+            border-radius: 50%;
+            box-shadow: inset 0 0 8px rgba(184,148,60,0.2);
+        }
+        html.dark .skill-icon-wrap {
+            background: var(--kraft-1);
+            border-color: var(--bord-d);
+        }
+        .skill-icon-wrap i {
+            font-size: 1.8rem;
+            color: var(--bordeaux);
+        }
+        .skill-card h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+        .skill-card p {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            letter-spacing: 1px;
+        }
+        .skill-bar {
+            height: 3px;
+            background: rgba(74,47,31,0.15);
+            margin-top: 1.2rem;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--bordeaux), var(--or));
+            width: 0;
+            transition: width 1.6s cubic-bezier(0.23,1,0.32,1);
+        }
+
+        .project-image img.full-img {
+            object-fit: contain;
+            padding: 10px;
+            background: var(--paper);
+            filter: sepia(15%);
+        }
+        html.dark .project-image img.full-img { background: var(--kraft-1); }
+
+        /* PROJETS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 1rem;
+        }
+        .project-card {
+            background: var(--kraft-1);
+            border: 1px solid var(--or-d);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.5),
+                4px 4px 0 var(--or-d),
+                8px 8px 25px rgba(43,24,16,0.2);
+        }
+        html.dark .project-card {
+            background: var(--kraft-2);
+            border-color: var(--bord-d);
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.1),
+                4px 4px 0 var(--bord-d),
+                8px 8px 25px rgba(0,0,0,0.5);
+        }
+        .project-card::before {
+            content: '';
+            position: absolute; inset: 8px;
+            border: 1px solid rgba(184,148,60,0.4);
+            pointer-events: none;
+            z-index: 2;
+        }
+        html.dark .project-card::before { border-color: rgba(192,54,78,0.25); }
+        .project-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.5),
+                7px 7px 0 var(--or-d),
+                12px 12px 35px rgba(43,24,16,0.3);
+        }
+        html.dark .project-card:hover {
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.15),
+                7px 7px 0 var(--bord-d),
+                12px 12px 35px rgba(192,54,78,0.25);
+        }
+
+        .project-image {
+            position: relative;
+            height: 200px;
+            background: var(--kraft-2);
+            overflow: hidden;
+        }
+        .project-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: sepia(30%) contrast(0.95);
+            transition: transform 0.5s, filter 0.3s;
+        }
+        .project-image img.logo {
+            object-fit: contain;
+            padding: 18px;
+            background: var(--paper);
+            filter: sepia(15%);
+        }
+        html.dark .project-image img.logo { background: var(--kraft-1); }
+        .project-card:hover .project-image img { transform: scale(1.05); filter: sepia(10%); }
+
+        .project-stamp {
+            position: absolute;
+            top: 12px; left: 12px;
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--paper);
+            background: var(--bordeaux);
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--bord-d);
+            z-index: 3;
+            box-shadow: 1px 1px 0 var(--bord-d);
+        }
+
+        .project-body {
+            padding: 1.2rem 1.4rem 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+        .project-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink);
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+        .project-subtitle {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: var(--bordeaux);
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+            line-height: 1.4;
+        }
+        html.dark .project-subtitle { color: var(--bord-l); }
+        .project-desc {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            font-style: italic;
+            padding-top: 0.7rem;
+            border-top: 1px dashed rgba(184,148,60,0.4);
+        }
+        html.dark .project-desc { border-top-color: rgba(192,54,78,0.3); }
+        .project-link-hint {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            margin-top: 0.7rem;
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 0.75rem;
+            color: var(--or-d);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .project-link-hint::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+        .project-card:hover .project-link-hint::after { transform: translateX(4px); }
+
+        /* MODAL */
+        .modal-backdrop {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(43,24,16,0.85);
+            z-index: 2000;
+            align-items: center; justify-content: center;
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+        }
+        html.dark .modal-backdrop { background: rgba(0,0,0,0.9); }
+        .modal-backdrop.open { display: flex; }
+        .modal {
+            background: var(--paper);
+            border: 2px solid var(--or);
+            max-width: 720px; width: 100%; max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalIn 0.4s cubic-bezier(0.23,1,0.32,1);
+            box-shadow:
+                0 0 0 1px var(--or-d),
+                0 0 0 6px var(--paper),
+                0 0 0 7px var(--or-d),
+                0 30px 80px rgba(0,0,0,0.5);
+        }
+        html.dark .modal {
+            background: var(--kraft-2);
+            border-color: var(--bordeaux);
+            box-shadow:
+                0 0 0 1px var(--bord-d),
+                0 0 0 6px var(--paper),
+                0 0 0 7px var(--bord-d),
+                0 30px 80px rgba(0,0,0,0.7);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: none; }
+        }
+        .modal-img {
+            width: 100%; max-height: 380px;
+            object-fit: cover;
+            background: var(--kraft-2);
+            display: block;
+        }
+        .modal-placeholder {
+            width: 100%; height: 240px;
+            background: linear-gradient(135deg, var(--kraft-1), var(--kraft-2));
+            display: flex; align-items: center; justify-content: center;
+        }
+        .modal-placeholder i {
+            font-size: 4rem; color: var(--bordeaux); opacity: 0.4;
+        }
+        .modal-body { padding: 1.8rem 2rem 2rem; }
+        .modal-tag {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.7rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--paper);
+            background: var(--bordeaux);
+            padding: 0.3rem 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .modal-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.6rem; font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--ink);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        .modal-desc {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--ink-soft);
+            line-height: 1.8;
+        }
+        .modal-visit {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            margin-top: 1.5rem;
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.78rem; letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 0.85rem 1.6rem;
+            background: var(--bordeaux); color: var(--paper);
+            border: 1px solid var(--bord-d);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .modal-visit:hover {
+            background: var(--bord-d);
+            box-shadow: 3px 3px 0 var(--or-d);
+            transform: translate(-1px, -1px);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            width: 36px; height: 36px;
+            background: var(--paper);
+            border: 1px solid var(--or-d);
+            color: var(--ink);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            z-index: 5;
+        }
+        .modal-close:hover {
+            background: var(--bordeaux); color: var(--paper); border-color: var(--bordeaux);
+            transform: rotate(90deg);
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        .contact-list { display: flex; flex-direction: column; gap: 1rem; }
+        .contact-card {
+            display: flex; align-items: center; gap: 1.1rem;
+            padding: 1.1rem 1.3rem;
+            background: var(--kraft-1);
+            border: 1px solid var(--or-d);
+            transition: all 0.3s;
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.4),
+                2px 2px 0 var(--or-d);
+        }
+        html.dark .contact-card {
+            background: var(--kraft-2);
+            border-color: var(--bord-d);
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.1),
+                2px 2px 0 var(--bord-d);
+        }
+        .contact-card:hover {
+            transform: translateX(4px);
+            border-color: var(--bordeaux);
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.4),
+                4px 4px 0 var(--bordeaux);
+        }
+        .contact-card:hover .contact-icon {
+            background: rgba(107,26,42,0.1);
+            color: var(--bordeaux);
+            border-color: var(--bordeaux);
+        }
+        html.dark .contact-card:hover {
+            border-color: var(--bord-l);
+            box-shadow:
+                inset 0 0 0 1px rgba(192,54,78,0.15),
+                4px 4px 0 var(--bord-l);
+        }
+        html.dark .contact-card:hover .contact-icon {
+            background: rgba(192,54,78,0.15);
+            color: var(--bord-l);
+            border-color: var(--bord-l);
+        }
+        .contact-card.instagram:hover { border-color: #c13584; box-shadow: inset 0 0 0 1px rgba(240,228,200,0.4), 4px 4px 0 #c13584; }
+        .contact-card.instagram:hover .contact-icon { background: rgba(193,53,132,0.12); color: #c13584; border-color: #c13584; }
+        .contact-card.tiktok:hover { border-color: #010101; box-shadow: inset 0 0 0 1px rgba(240,228,200,0.4), 4px 4px 0 #010101; }
+        .contact-card.tiktok:hover .contact-icon { background: rgba(1,1,1,0.08); color: #010101; border-color: #010101; }
+        html.dark .contact-card.tiktok:hover { border-color: #69C9D0; box-shadow: inset 0 0 0 1px rgba(240,228,200,0.1), 4px 4px 0 #69C9D0; }
+        html.dark .contact-card.tiktok:hover .contact-icon { background: rgba(105,201,208,0.15); color: #69C9D0; border-color: #69C9D0; }
+
+        .contact-icon {
+            flex-shrink: 0;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--paper);
+            border: 1px solid var(--or-d);
+            color: var(--bordeaux);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        html.dark .contact-icon { background: var(--kraft-1); border-color: var(--bord-d); }
+        .contact-info { flex: 1; min-width: 0; }
+        .contact-label {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--or-d);
+            font-style: italic;
+            margin-bottom: 0.15rem;
+        }
+        .contact-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+            word-break: break-all;
+        }
+
+        .contact-cta {
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--bordeaux), var(--bord-d));
+            color: var(--paper);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 2px solid var(--bord-d);
+            position: relative;
+            min-height: 100%;
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.2),
+                4px 4px 0 var(--or-d),
+                8px 8px 25px rgba(43,24,16,0.3);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .contact-cta::before {
+            content: '';
+            position: absolute; inset: 8px;
+            border: 1px dashed rgba(240,228,200,0.4);
+            pointer-events: none;
+        }
+        .contact-cta:hover {
+            transform: translate(-2px, -2px);
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,0.2),
+                6px 6px 0 var(--or-d),
+                12px 12px 30px rgba(43,24,16,0.4);
+        }
+        .contact-cta i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--or-l);
+        }
+        .contact-cta-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.2rem; font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+        }
+        .contact-cta-desc {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            max-width: 240px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem 3rem;
+            margin-top: 4rem;
+            border-top: 1px double var(--or-d);
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.88rem;
+            letter-spacing: 4px;
+            color: var(--ink);
+            position: relative;
+            z-index: 1;
+        }
+        html.dark footer { border-top-color: var(--bord-d); }
+        footer::before {
+            content: '✦ ✦ ✦';
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 10px;
+            color: var(--or-d);
+            margin-bottom: 1rem;
+        }
+        footer .footer-motto {
+            display: block;
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+            margin-top: 0.7rem;
+            text-transform: none;
+        }
+
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-stagger.visible > * { opacity: 1; transform: none; }
+        .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+        .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+        .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+        .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; }
+        .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; }
+        .reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.65s; }
+
+        @media (max-width: 900px) {
+            header { padding: 1rem 1.5rem; }
+            main { padding: 0 1.5rem; }
+            .burger { display: flex; }
+            nav {
+                position: fixed; top: 0; right: -300px;
+                width: 280px; height: 100vh;
+                background: var(--kraft-1);
+                border-left: 2px solid var(--or);
+                z-index: 95;
+                padding: 5rem 2rem 2rem;
+                transition: right 0.35s ease;
+            }
+            html.dark nav { background: var(--kraft-2); border-left-color: var(--bordeaux); }
+            nav.open { right: 0; }
+            nav ul { flex-direction: column; gap: 0.4rem; }
+            nav a { padding: 0.8rem 1rem; }
+            #hero { grid-template-columns: 1fr; }
+            .hero-left, .hero-right { text-align: center; padding-top: 0; }
+            .hero-banner::before, .hero-banner::after { display: none; }
+            .hero-center { min-width: 0; }
+            .hero-stats { gap: 2rem; flex-wrap: wrap; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .frame-svg { inset: 4px; width: calc(100vw - 8px); height: calc(100vh - 8px); }
+        }
+        @media (max-width: 480px) {
+            section { padding: 3rem 0; }
+            .hero-name { font-size: 3rem; }
+            .stat-num { font-size: 1.8rem; }
+            .modal-body { padding: 1.3rem; }
+            .modal-title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+    <!-- CADRE BAROQUE -->
+    <div class="frame-svg" aria-hidden="true">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d4a84a"/>
+                    <stop offset="50%" stop-color="#b8943c"/>
+                    <stop offset="100%" stop-color="#8a6a20"/>
+                </linearGradient>
+                <linearGradient id="gold-light" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f0dfa0"/>
+                    <stop offset="100%" stop-color="#b8943c"/>
+                </linearGradient>
+                <radialGradient id="gold-orb">
+                    <stop offset="0%" stop-color="#f0dfa0"/>
+                    <stop offset="60%" stop-color="#b8943c"/>
+                    <stop offset="100%" stop-color="#5a4310"/>
+                </radialGradient>
+            </defs>
+
+            <rect x="2" y="2" width="996" height="996" fill="none" stroke="url(#gold-grad)" stroke-width="3" vector-effect="non-scaling-stroke"/>
+            <rect x="8" y="8" width="984" height="984" fill="none" stroke="#8a6a20" stroke-width="0.5" vector-effect="non-scaling-stroke" opacity="0.7"/>
+            <rect x="14" y="14" width="972" height="972" fill="none" stroke="#b8943c" stroke-width="1" vector-effect="non-scaling-stroke" opacity="0.5"/>
+
+            <!-- Coins -->
+            <g transform="translate(2,2)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#gold-grad)"/>
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#gold-light)" opacity="0.85"/>
+                <path d="M 50 18 Q 60 12 70 18 Q 65 24 55 24 Q 53 20 50 18 Z" fill="url(#gold-light)" opacity="0.7"/>
+                <path d="M 18 18 Q 14 14 18 10 Q 22 12 22 18 Q 22 22 18 22 Q 16 20 18 18 Z" fill="#5a4310"/>
+                <circle cx="40" cy="40" r="5" fill="url(#gold-orb)"/>
+                <circle cx="40" cy="40" r="2" fill="#f0dfa0"/>
+                <path d="M 0 90 Q 12 95 20 105 Q 15 115 5 110 Q 0 100 0 90 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <path d="M 90 0 Q 95 12 105 20 Q 115 15 110 5 Q 100 0 90 0 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <circle cx="60" cy="60" r="1.5" fill="#f0dfa0"/>
+                <circle cx="70" cy="50" r="1" fill="#b8943c"/>
+                <circle cx="50" cy="70" r="1" fill="#b8943c"/>
+            </g>
+            <g transform="translate(998,2) scale(-1,1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#gold-grad)"/>
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#gold-light)" opacity="0.85"/>
+                <path d="M 50 18 Q 60 12 70 18 Q 65 24 55 24 Q 53 20 50 18 Z" fill="url(#gold-light)" opacity="0.7"/>
+                <path d="M 18 18 Q 14 14 18 10 Q 22 12 22 18 Q 22 22 18 22 Q 16 20 18 18 Z" fill="#5a4310"/>
+                <circle cx="40" cy="40" r="5" fill="url(#gold-orb)"/>
+                <circle cx="40" cy="40" r="2" fill="#f0dfa0"/>
+                <path d="M 0 90 Q 12 95 20 105 Q 15 115 5 110 Q 0 100 0 90 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <path d="M 90 0 Q 95 12 105 20 Q 115 15 110 5 Q 100 0 90 0 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <circle cx="60" cy="60" r="1.5" fill="#f0dfa0"/>
+                <circle cx="70" cy="50" r="1" fill="#b8943c"/>
+                <circle cx="50" cy="70" r="1" fill="#b8943c"/>
+            </g>
+            <g transform="translate(2,998) scale(1,-1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#gold-grad)"/>
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#gold-light)" opacity="0.85"/>
+                <path d="M 50 18 Q 60 12 70 18 Q 65 24 55 24 Q 53 20 50 18 Z" fill="url(#gold-light)" opacity="0.7"/>
+                <path d="M 18 18 Q 14 14 18 10 Q 22 12 22 18 Q 22 22 18 22 Q 16 20 18 18 Z" fill="#5a4310"/>
+                <circle cx="40" cy="40" r="5" fill="url(#gold-orb)"/>
+                <circle cx="40" cy="40" r="2" fill="#f0dfa0"/>
+                <path d="M 0 90 Q 12 95 20 105 Q 15 115 5 110 Q 0 100 0 90 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <path d="M 90 0 Q 95 12 105 20 Q 115 15 110 5 Q 100 0 90 0 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <circle cx="60" cy="60" r="1.5" fill="#f0dfa0"/>
+                <circle cx="70" cy="50" r="1" fill="#b8943c"/>
+                <circle cx="50" cy="70" r="1" fill="#b8943c"/>
+            </g>
+            <g transform="translate(998,998) scale(-1,-1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#gold-grad)"/>
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#gold-light)" opacity="0.85"/>
+                <path d="M 50 18 Q 60 12 70 18 Q 65 24 55 24 Q 53 20 50 18 Z" fill="url(#gold-light)" opacity="0.7"/>
+                <path d="M 18 18 Q 14 14 18 10 Q 22 12 22 18 Q 22 22 18 22 Q 16 20 18 18 Z" fill="#5a4310"/>
+                <circle cx="40" cy="40" r="5" fill="url(#gold-orb)"/>
+                <circle cx="40" cy="40" r="2" fill="#f0dfa0"/>
+                <path d="M 0 90 Q 12 95 20 105 Q 15 115 5 110 Q 0 100 0 90 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <path d="M 90 0 Q 95 12 105 20 Q 115 15 110 5 Q 100 0 90 0 Z" fill="url(#gold-light)" opacity="0.6"/>
+                <circle cx="60" cy="60" r="1.5" fill="#f0dfa0"/>
+                <circle cx="70" cy="50" r="1" fill="#b8943c"/>
+                <circle cx="50" cy="70" r="1" fill="#b8943c"/>
+            </g>
+
+            <!-- Médaillons -->
+            <g transform="translate(500,2)">
+                <path d="M -50 0 Q -50 25 -25 30 L 25 30 Q 50 25 50 0 Z" fill="url(#gold-grad)"/>
+                <path d="M -50 0 Q -50 25 -25 30 L 25 30 Q 50 25 50 0 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M -20 8 L -12 18 L -4 6 L 0 16 L 4 6 L 12 18 L 20 8 L 18 22 L -18 22 Z" fill="url(#gold-light)"/>
+                <path d="M -20 8 L -12 18 L -4 6 L 0 16 L 4 6 L 12 18 L 20 8 L 18 22 L -18 22 Z" fill="none" stroke="#5a4310" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+                <circle cx="-12" cy="18" r="1.5" fill="#6b1a2a"/>
+                <circle cx="0" cy="16" r="1.5" fill="#6b1a2a"/>
+                <circle cx="12" cy="18" r="1.5" fill="#6b1a2a"/>
+            </g>
+            <g transform="translate(500,998) scale(1,-1)">
+                <path d="M -50 0 Q -50 25 -25 30 L 25 30 Q 50 25 50 0 Z" fill="url(#gold-grad)"/>
+                <path d="M -50 0 Q -50 25 -25 30 L 25 30 Q 50 25 50 0 Z" fill="none" stroke="#5a4310" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+                <path d="M 0 6 L 4 16 L 14 16 L 6 22 L 9 32 L 0 26 L -9 32 L -6 22 L -14 16 L -4 16 Z" fill="url(#gold-light)"/>
+                <path d="M 0 6 L 4 16 L 14 16 L 6 22 L 9 32 L 0 26 L -9 32 L -6 22 L -14 16 L -4 16 Z" fill="none" stroke="#5a4310" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+                <circle cx="0" cy="20" r="1.5" fill="#6b1a2a"/>
+            </g>
+            <g transform="translate(2,500)">
+                <path d="M 0 -50 Q 25 -50 30 -25 L 30 25 Q 25 50 0 50 Z" fill="url(#gold-grad)"/>
+                <circle cx="18" cy="0" r="8" fill="none" stroke="url(#gold-light)" stroke-width="1.5"/>
+                <circle cx="18" cy="0" r="4" fill="none" stroke="url(#gold-light)" stroke-width="1"/>
+                <circle cx="18" cy="0" r="1.5" fill="#6b1a2a"/>
+            </g>
+            <g transform="translate(998,500) scale(-1,1)">
+                <path d="M 0 -50 Q 25 -50 30 -25 L 30 25 Q 25 50 0 50 Z" fill="url(#gold-grad)"/>
+                <circle cx="18" cy="0" r="8" fill="none" stroke="url(#gold-light)" stroke-width="1.5"/>
+                <circle cx="18" cy="0" r="4" fill="none" stroke="url(#gold-light)" stroke-width="1"/>
+                <circle cx="18" cy="0" r="1.5" fill="#6b1a2a"/>
+            </g>
+
+            <g fill="#b8943c">
+                <circle cx="250" cy="6" r="2"/>
+                <circle cx="750" cy="6" r="2"/>
+                <circle cx="250" cy="994" r="2"/>
+                <circle cx="750" cy="994" r="2"/>
+                <circle cx="6" cy="250" r="2"/>
+                <circle cx="6" cy="750" r="2"/>
+                <circle cx="994" cy="250" r="2"/>
+                <circle cx="994" cy="750" r="2"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <header role="banner">
+        <a href="#hero" class="logo-mark" aria-label="Steeve Barthel, accueil">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" stroke="#8a6a20" stroke-width="1" fill="none"/>
+                <circle cx="20" cy="20" r="14" stroke="#8a6a20" stroke-width="0.5" fill="none" stroke-dasharray="2,2"/>
+                <text x="20" y="26" text-anchor="middle" font-family="Cinzel Decorative, serif" font-size="14" font-weight="700" fill="#6b1a2a">SB</text>
+            </svg>
+            <div class="logo-text">STEEVE BARTHEL<small>· BUT MMI ·</small></div>
+        </a>
+        <div class="header-right">
+            <button class="theme-btn" id="themeBtn" aria-label="Mode sombre" title="Mode sombre">
+                <svg class="theme-icon icon-moon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Lune dessinée au crayon -->
+                    <path d="M 22 6 Q 14 8 12 16 Q 11 23 18 26 Q 24 27 26 22 Q 19 23 16 18 Q 14 12 22 6 Z"
+                          fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 22.3 6.4 Q 14.5 8.5 12.5 16.2 Q 11.5 22.8 18.2 25.8"
+                          fill="none" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.5"/>
+                    <circle cx="17" cy="14" r="0.7" fill="currentColor" opacity="0.6"/>
+                    <circle cx="19" cy="19" r="0.5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="15" cy="20" r="0.4" fill="currentColor" opacity="0.4"/>
+                </svg>
+                <svg class="theme-icon icon-sun" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Soleil dessiné au crayon -->
+                    <circle cx="16" cy="16" r="5.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5" stroke-dasharray="1,1.2"/>
+                    <path d="M 16 4 L 16 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 16 24 L 16 28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 4 16 L 8 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 24 16 L 28 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 7.5 7.5 L 10.3 10.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 21.7 21.7 L 24.5 24.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 7.5 24.5 L 10.3 21.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M 21.7 10.3 L 24.5 7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="main-nav" aria-label="Navigation principale">
+                <ul role="menubar">
+                    <li role="none"><a href="#hero" role="menuitem" class="actif" aria-current="page">Accueil</a></li>
+                    <li role="none"><a href="#competences" role="menuitem">Skills</a></li>
+                    <li role="none"><a href="projets.html" role="menuitem">Projets</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section id="hero" aria-labelledby="hero-heading">
+            <div class="hero-banner" aria-hidden="true">— PORTFOLIO —</div>
+            <div class="hero-left reveal">
+                <div class="sublabel">Là où le sport,<br>le design graphique<br>et le montage se rencontrent</div>
+            </div>
+            <div class="hero-center reveal">
+                <h1 id="hero-heading" class="hero-name">
+                    <span class="firstname">Steeve</span>
+                    BARTHEL
+                </h1>
+                <div class="hero-tagline">— Étudiant BUT MMI —</div>
+                <div class="hero-divider">✦</div>
+                <div class="hero-portrait-wrap">
+                    <img src="IMG_4783.png" alt="Portrait de Steeve BARTHEL" width="200" height="240">
+                </div>
+                <p class="hero-quote">« 18 ans, en 1re année de BUT MMI et passionné par le design, le montage et le foot. Pas encore d'expérience pro — mais une vraie curiosité, des projets plein la tête et la conviction que créer, c'est apprendre. »</p>
+                <div class="hero-ctas">
+                    <a href="projets.html" class="btn btn-fill"><i class="fas fa-scroll" aria-hidden="true"></i> Voir mes projets</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-feather" aria-hidden="true"></i> Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-right reveal">
+                <div class="label">CRÉATIVITÉ</div>
+                <div class="sublabel">Football,<br>Design graphique<br>et Montage vidéo</div>
+            </div>
+            <div class="hero-stats reveal-stagger">
+                <div class="stat"><span class="stat-num">III</span><span class="stat-label">Années BUT</span></div>
+                <div class="stat"><span class="stat-num">VII</span><span class="stat-label">Projets</span></div>
+                <div class="stat"><span class="stat-num">III</span><span class="stat-label">Compétences</span></div>
+            </div>
+
+            <!-- GALERIE PEINTE PAR PINCEAU -->
+            <div class="paint-gallery reveal" aria-label="Galerie de visuels animée">
+                <div class="paint-gallery-label">— Galerie peinte —</div>
+                <div class="paint-stage" id="paintStage">
+                    <div class="paint-canvas" id="paintCanvas">
+                        <img class="paint-img" src="venezia.png" alt="Venezia FC" data-caption="Venezia FC · La Serenissima">
+                        <img class="paint-img" src="allemagne_bleu.png" alt="Deutschland - Maillot bleu" data-caption="Deutschland · Berlin Hauptstadt">
+                        <img class="paint-img" src="ALLEMAGNE.png" alt="Deutschland - Maillot blanc" data-caption="Die Mannschaft · One Team, One Dream">
+                        <img class="paint-img" src="bruges.png" alt="Club Brugge" data-caption="Bruges · Venise du Nord">
+                    </div>
+                    <div class="paint-trace" id="paintTrace"></div>
+                    <div class="paint-brush" id="paintBrush">
+                        <svg viewBox="0 0 70 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Manche en bois -->
+                            <defs>
+                                <linearGradient id="woodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#3a2010"/>
+                                    <stop offset="40%" stop-color="#6b3a1a"/>
+                                    <stop offset="100%" stop-color="#2a1808"/>
+                                </linearGradient>
+                                <linearGradient id="ferruleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#d4a84a"/>
+                                    <stop offset="50%" stop-color="#b8943c"/>
+                                    <stop offset="100%" stop-color="#8a6a20"/>
+                                </linearGradient>
+                                <linearGradient id="bristleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#6b1a2a"/>
+                                    <stop offset="60%" stop-color="#4a0f1c"/>
+                                    <stop offset="100%" stop-color="#8b2235"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Manche -->
+                            <path d="M 30 0 L 40 0 L 42 100 L 28 100 Z" fill="url(#woodGrad)"/>
+                            <path d="M 30 0 L 40 0 L 42 100 L 28 100 Z" fill="none" stroke="#1a0c04" stroke-width="0.5"/>
+                            <line x1="32" y1="10" x2="34" y2="95" stroke="#2a1808" stroke-width="0.4" opacity="0.6"/>
+                            <line x1="37" y1="15" x2="38" y2="90" stroke="#2a1808" stroke-width="0.3" opacity="0.5"/>
+                            <!-- Ferrule métallique dorée -->
+                            <path d="M 26 100 L 44 100 L 46 130 L 24 130 Z" fill="url(#ferruleGrad)"/>
+                            <path d="M 26 100 L 44 100 L 46 130 L 24 130 Z" fill="none" stroke="#5a4310" stroke-width="0.6"/>
+                            <line x1="25" y1="108" x2="45" y2="108" stroke="#5a4310" stroke-width="0.4"/>
+                            <line x1="24" y1="122" x2="46" y2="122" stroke="#5a4310" stroke-width="0.4"/>
+                            <!-- Bandes brillantes ferrule -->
+                            <line x1="27" y1="104" x2="43" y2="104" stroke="#f0dfa0" stroke-width="0.6" opacity="0.7"/>
+                            <line x1="27" y1="118" x2="43" y2="118" stroke="#f0dfa0" stroke-width="0.6" opacity="0.7"/>
+                            <!-- Poils du pinceau -->
+                            <path d="M 24 130 L 46 130 L 50 180 Q 35 200 20 180 Z" fill="url(#bristleGrad)"/>
+                            <path d="M 24 130 L 46 130 L 50 180 Q 35 200 20 180 Z" fill="none" stroke="#2a0508" stroke-width="0.5"/>
+                            <!-- Détails poils -->
+                            <line x1="28" y1="135" x2="26" y2="185" stroke="#2a0508" stroke-width="0.6" opacity="0.6"/>
+                            <line x1="32" y1="135" x2="30" y2="192" stroke="#2a0508" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="35" y1="135" x2="35" y2="195" stroke="#2a0508" stroke-width="0.7" opacity="0.7"/>
+                            <line x1="38" y1="135" x2="40" y2="192" stroke="#2a0508" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="42" y1="135" x2="44" y2="185" stroke="#2a0508" stroke-width="0.6" opacity="0.6"/>
+                            <!-- Reflet sur le manche -->
+                            <path d="M 31 5 L 33 95 L 31 95 L 30 5 Z" fill="#a06030" opacity="0.4"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="paint-caption" id="paintCaption">Venezia FC · La Serenissima</div>
+                <div class="paint-dots" id="paintDots" role="tablist" aria-label="Choisir un visuel">
+                    <button class="paint-dot active" data-idx="0" aria-label="Visuel 1"></button>
+                    <button class="paint-dot" data-idx="1" aria-label="Visuel 2"></button>
+                    <button class="paint-dot" data-idx="2" aria-label="Visuel 3"></button>
+                    <button class="paint-dot" data-idx="3" aria-label="Visuel 4"></button>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 12 L 20 12 M 40 12 L 60 12" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                <path d="M 30 6 Q 35 12 30 18 Q 25 12 30 6 Z" fill="currentColor"/>
+                <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="40" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="glyph">✦</span>
+            <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 12 L 20 12 M 40 12 L 60 12" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                <path d="M 30 6 Q 35 12 30 18 Q 25 12 30 6 Z" fill="currentColor"/>
+                <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="40" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <!-- SKILLS -->
+        <section id="competences" class="reveal">
+            <div class="section-header">
+                <span class="roman">CAPITULUM · II</span>
+                <h2>Compétences</h2>
+                <div class="motto">— Ars et Scientia —</div>
+                <div class="section-flourish" aria-hidden="true">
+                    <svg viewBox="0 0 30 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 15 2 Q 22 8 15 14 Q 8 8 15 2 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="skills-grid reveal-stagger">
+                <article class="skill-card">
+                    <div class="skill-icon-wrap"><i class="fas fa-code" aria-hidden="true"></i></div>
+                    <h3>HTML · CSS</h3>
+                    <p>Niveau débutant</p>
+                    <div class="skill-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                        <div class="skill-fill" data-pct="45"></div>
+                    </div>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon-wrap"><i class="fas fa-drafting-compass" aria-hidden="true"></i></div>
+                    <h3>Design</h3>
+                    <p>Figma · Canva · Photoshop</p>
+                    <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <div class="skill-fill" data-pct="60"></div>
+                    </div>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon-wrap"><i class="fas fa-film" aria-hidden="true"></i></div>
+                    <h3>Montage vidéo</h3>
+                    <p>CapCut · DaVinci</p>
+                    <div class="skill-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                        <div class="skill-fill" data-pct="55"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 12 L 20 12 M 40 12 L 60 12" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                <path d="M 30 6 Q 35 12 30 18 Q 25 12 30 6 Z" fill="currentColor"/>
+                <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="40" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="glyph">✦</span>
+            <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 12 L 20 12 M 40 12 L 60 12" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                <path d="M 30 6 Q 35 12 30 18 Q 25 12 30 6 Z" fill="currentColor"/>
+                <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="40" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <!-- CONTACT -->
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <span class="roman">CAPITULUM · III</span>
+                <h2>Contact</h2>
+                <div class="motto">— Epistolarium —</div>
+                <div class="section-flourish" aria-hidden="true">
+                    <svg viewBox="0 0 30 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 15 2 Q 22 8 15 14 Q 8 8 15 2 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-list reveal-stagger">
+                    <a href="mailto:steevebarthel@gmail.com" class="contact-card" aria-label="Email">
+                        <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                        <div class="contact-info">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">steevebarthel@gmail.com</div>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/steeve-barthel-a54529389/" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="LinkedIn">
+                        <div class="contact-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+                        <div class="contact-info">
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">Steeve BARTHEL</div>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/stxve_971/" target="_blank" rel="noopener noreferrer" class="contact-card instagram" aria-label="Instagram">
+                        <div class="contact-icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                        <div class="contact-info">
+                            <div class="contact-label">Instagram</div>
+                            <div class="contact-value">@stxve_971</div>
+                        </div>
+                    </a>
+                    <a href="https://www.tiktok.com/@stxvn971" target="_blank" rel="noopener noreferrer" class="contact-card tiktok" aria-label="TikTok">
+                        <div class="contact-icon"><i class="fab fa-tiktok" aria-hidden="true"></i></div>
+                        <div class="contact-info">
+                            <div class="contact-label">TikTok</div>
+                            <div class="contact-value">@stxvn971</div>
+                        </div>
+                    </a>
+                    <a href="tel:+590690981979" class="contact-card" aria-label="Téléphone">
+                        <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                        <div class="contact-info">
+                            <div class="contact-label">Téléphone</div>
+                            <div class="contact-value">0690 98 19 79</div>
+                        </div>
+                    </a>
+                </div>
+                <a href="contact.html" class="contact-cta">
+                    <i class="fas fa-feather-alt" aria-hidden="true"></i>
+                    <div class="contact-cta-title">Écrivez-moi</div>
+                    <div class="contact-cta-desc">Une idée, un projet, une collaboration — utilisez le formulaire pour me contacter directement.</div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <div>© <span id="annee"></span> · STEEVE BARTHEL · BUT MMI · TOUS DROITS RÉSERVÉS</div>
+        <span class="footer-motto">— Tra canali e sogni, vive il design —</span>
+    </footer>
+
+    <script>
+    document.getElementById('annee').textContent = new Date().getFullYear();
+
+    // THÈME
+    const themeBtn = document.getElementById('themeBtn');
+    const htmlEl = document.documentElement;
+    function applyTheme(dark) {
+        htmlEl.classList.toggle('dark', dark);
+        themeBtn.setAttribute('aria-label', dark ? 'Mode clair' : 'Mode sombre');
+        themeBtn.setAttribute('title', dark ? 'Mode clair' : 'Mode sombre');
+    }
+    applyTheme(localStorage.getItem('theme') === 'dark');
+    themeBtn.addEventListener('click', () => {
+        const isDark = !htmlEl.classList.contains('dark');
+        applyTheme(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // BURGER
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mainNav = document.getElementById('main-nav');
+    const overlay = document.getElementById('overlay');
+    function toggleNav(open) {
+        const isOpen = open !== undefined ? open : !mainNav.classList.contains('open');
+        mainNav.classList.toggle('open', isOpen);
+        overlay.classList.toggle('show', isOpen);
+        burgerBtn.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burgerBtn.addEventListener('click', () => toggleNav());
+    overlay.addEventListener('click', () => toggleNav(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleNav(false)));
+
+    // NAV ACTIVE
+    const navItems = Array.from(mainNav.querySelectorAll('a[role="menuitem"]'));
+    navItems.forEach(a => {
+        a.addEventListener('click', function() {
+            navItems.forEach(l => { l.classList.remove('actif'); l.removeAttribute('aria-current'); });
+            this.classList.add('actif');
+            this.setAttribute('aria-current', 'page');
+        });
+    });
+
+    // REVEAL + SKILL BARS
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                e.target.querySelectorAll('.skill-fill').forEach(b => {
+                    const pct = b.getAttribute('data-pct');
+                    if (pct) b.style.width = pct + '%';
+                });
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    // Bfcache : au retour navigateur, forcer l'affichage des éléments reveal déjà dans le viewport
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            document.querySelectorAll('.reveal:not(.visible), .reveal-stagger:not(.visible)').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                    el.querySelectorAll('.skill-fill').forEach(b => {
+                        const pct = b.getAttribute('data-pct');
+                        if (pct) b.style.width = pct + '%';
+                    });
+                } else {
+                    observer.observe(el);
+                }
+            });
+        }
+    });
+
+    // GALERIE PEINTE PAR PINCEAU
+    (function() {
+        const stage   = document.getElementById('paintStage');
+        const imgs    = stage.querySelectorAll('.paint-img');
+        const brush   = document.getElementById('paintBrush');
+        const trace   = document.getElementById('paintTrace');
+        const caption = document.getElementById('paintCaption');
+        const dots    = document.querySelectorAll('.paint-dot');
+        let current   = 0;
+        let timer     = null;
+        let isPainting = false;
+        let started   = false;
+
+        const PAINT_DURATION = 4000;
+        const HOLD_DURATION  = 2200;
+
+        function resetAll() {
+            clearInterval(timer);
+            isPainting = false;
+            current = 0;
+            imgs.forEach(img => {
+                img.classList.remove('painting', 'fade-out');
+                img.style.clipPath = 'inset(0 100% 0 0)';
+                img.style.opacity = '0';
+            });
+            brush.classList.remove('active');
+            trace.classList.remove('active');
+            dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+        }
+
+        function paint(idx) {
+            if (isPainting) return;
+            isPainting = true;
+            const prev = current;
+            current = idx;
+
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+            caption.classList.add('fading');
+            setTimeout(() => {
+                caption.textContent = imgs[idx].dataset.caption;
+                caption.classList.remove('fading');
+            }, 300);
+
+            if (prev !== idx) {
+                imgs[prev].classList.add('fade-out');
+                setTimeout(() => {
+                    imgs[prev].classList.remove('painting', 'fade-out');
+                    imgs[prev].style.clipPath = 'inset(0 100% 0 0)';
+                    imgs[prev].style.opacity = '0';
+                }, 600);
+            }
+
+            const target = imgs[idx];
+            target.classList.remove('painting', 'fade-out');
+            target.style.clipPath = 'inset(0 100% 0 0)';
+            target.style.opacity = '1';
+
+            void target.offsetWidth;
+            brush.classList.remove('active');
+            trace.classList.remove('active');
+            void brush.offsetWidth;
+
+            requestAnimationFrame(() => {
+                target.classList.add('painting');
+                target.style.clipPath = 'inset(0 0 0 0)';
+                brush.classList.add('active');
+                trace.classList.add('active');
+            });
+
+            setTimeout(() => {
+                brush.classList.remove('active');
+                trace.classList.remove('active');
+                isPainting = false;
+            }, PAINT_DURATION);
+        }
+
+        function next() { paint((current + 1) % imgs.length); }
+
+        function start() {
+            clearInterval(timer);
+            timer = setInterval(next, PAINT_DURATION + HOLD_DURATION);
+        }
+
+        function initGallery() {
+            resetAll();
+            paint(0);
+            start();
+        }
+
+        dots.forEach((d, i) => {
+            d.addEventListener('click', () => {
+                if (i === current || isPainting) return;
+                paint(i);
+                start();
+            });
+        });
+
+        stage.addEventListener('mouseenter', () => clearInterval(timer));
+        stage.addEventListener('mouseleave', () => { if (started) start(); });
+
+        // Démarrage initial quand la galerie est visible
+        const galleryObs = new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    started = true;
+                    initGallery();
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.25 });
+        galleryObs.observe(stage);
+
+        // Relance après retour navigateur (bfcache)
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) {
+                // Relance la galerie
+                started = true;
+                initGallery();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

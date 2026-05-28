@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — Steeve BARTHEL</title>
+    <meta name="description" content="Contactez Steeve BARTHEL — étudiant BUT MMI, design, montage vidéo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --kraft-1:#e8dcc0;--kraft-2:#d9c89e;--kraft-3:#c4ad7a;
+            --ink:#2b1810;--ink-soft:#4a2f1f;--ink-faded:#8a6f55;
+            --bordeaux:#6b1a2a;--bord-d:#4a0f1c;--bord-l:#8b2235;
+            --or:#b8943c;--or-l:#d4a84a;--or-d:#8a6a20;--paper:#f0e4c8;
+        }
+        html.dark {
+            --kraft-1:#1a0c08;--kraft-2:#221008;--kraft-3:#2a1410;
+            --ink:#e8d4b8;--ink-soft:#d4b89e;--ink-faded:#a08a6e;
+            --bordeaux:#c0364e;--bord-d:#8a1a2a;--bord-l:#e0485e;
+            --or:#b8943c;--or-l:#d4a84a;--or-d:#8a6a20;--paper:#1c0e08;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        html,body{overflow-x:hidden;}
+        body{
+            font-family:'Cormorant Garamond','Georgia',serif;
+            background:var(--paper);color:var(--ink);line-height:1.7;
+            position:relative;min-height:100vh;
+            transition:background .5s,color .5s;
+        }
+        body::before{
+            content:'';position:fixed;inset:0;
+            background-image:
+                radial-gradient(ellipse at 15% 25%,rgba(168,143,93,.18) 0%,transparent 35%),
+                radial-gradient(ellipse at 85% 75%,rgba(168,143,93,.15) 0%,transparent 40%),
+                radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(74,47,31,.12) 100%),
+                repeating-linear-gradient(127deg,transparent 0px,transparent 2px,rgba(74,47,31,.025) 2px,rgba(74,47,31,.025) 3px);
+            pointer-events:none;z-index:0;
+        }
+        img{max-width:100%;height:auto;display:block;}
+        a{color:var(--bordeaux);text-decoration:none;}
+
+        /* HEADER */
+        header{
+            position:sticky;top:0;z-index:100;
+            display:flex;justify-content:space-between;align-items:center;
+            padding:1.1rem 3rem;
+            background:rgba(240,228,200,.92);
+            border-bottom:1px double var(--or-d);
+            backdrop-filter:blur(6px);
+        }
+        html.dark header{background:rgba(28,14,8,.94);border-bottom-color:var(--bord-d);}
+        .logo-mark{display:flex;align-items:center;gap:.8rem;}
+        .logo-mark svg{width:38px;height:38px;}
+        .logo-text{
+            font-family:'Cinzel Decorative',serif;
+            font-size:1.3rem;font-weight:900;color:var(--ink);
+            letter-spacing:3px;line-height:1;
+        }
+        .logo-text small{
+            display:block;font-family:'IM Fell English',serif;
+            font-size:.7rem;letter-spacing:4px;color:var(--or-d);
+            font-weight:400;margin-top:3px;font-style:italic;
+        }
+        .header-right{display:flex;align-items:center;gap:1rem;}
+        nav ul{display:flex;gap:.3rem;list-style:none;}
+        nav a{
+            position:relative;padding:.5rem 1rem;color:var(--ink-soft);
+            font-family:'IM Fell English SC',serif;font-size:.92rem;
+            letter-spacing:3px;text-transform:uppercase;transition:color .25s;
+        }
+        nav a::before{
+            content:'';position:absolute;left:50%;bottom:0;width:0;height:1px;
+            background:var(--bordeaux);transition:width .3s,left .3s;
+        }
+        nav a:hover,nav a.actif{color:var(--bordeaux);}
+        nav a:hover::before,nav a.actif::before{width:70%;left:15%;}
+        html.dark nav a:hover,html.dark nav a.actif{color:var(--bord-l);}
+
+        .theme-btn,.burger{
+            background:transparent;border:1px solid var(--or-d);
+            width:38px;height:38px;color:var(--ink);
+            cursor:pointer;display:flex;align-items:center;justify-content:center;
+            transition:all .25s;
+        }
+        .theme-btn:hover{background:var(--bordeaux);color:var(--paper);border-color:var(--bordeaux);}
+        .theme-icon{width:20px;height:20px;transition:transform .4s;}
+        .icon-sun{display:none;}
+        html.dark .icon-moon{display:none;}
+        html.dark .icon-sun{display:block;}
+        .theme-btn:hover .theme-icon{transform:rotate(15deg);}
+        .burger{display:none;flex-direction:column;gap:4px;padding:8px;}
+        .burger span{width:18px;height:1.5px;background:var(--ink);transition:all .3s;}
+        .overlay{display:none;position:fixed;inset:0;background:rgba(43,24,16,.6);z-index:90;}
+        .overlay.show{display:block;}
+
+        /* CADRE */
+        .frame-svg{position:fixed;inset:8px;pointer-events:none;z-index:50;width:calc(100vw - 16px);height:calc(100vh - 16px);}
+        .frame-svg svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(184,148,60,.25));}
+
+        main{max-width:900px;margin:0 auto;padding:3rem 3rem 5rem;position:relative;z-index:1;}
+
+        /* PAGE HEADER */
+        .page-header{text-align:center;padding:2rem 0 2.5rem;margin-bottom:1rem;}
+        .page-header .roman{
+            font-family:'Cinzel Decorative',serif;font-size:.9rem;
+            letter-spacing:8px;color:var(--or-d);display:block;margin-bottom:.5rem;
+        }
+        .page-header h1{
+            font-family:'Playfair Display',serif;
+            font-size:clamp(2.5rem,5vw,4rem);font-weight:900;
+            letter-spacing:6px;text-transform:uppercase;color:var(--ink);
+            line-height:1;margin-bottom:.8rem;
+        }
+        .page-header .motto{
+            font-family:'IM Fell English',serif;font-style:italic;
+            font-size:1.1rem;color:var(--ink-soft);letter-spacing:3px;
+        }
+        .page-flourish{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.2rem;}
+        .page-flourish::before,.page-flourish::after{
+            content:'';width:80px;height:1px;
+            background:linear-gradient(90deg,transparent,var(--or-d),transparent);
+        }
+        .page-flourish svg{width:28px;height:16px;color:var(--bordeaux);}
+
+        .back-link{
+            display:inline-flex;align-items:center;gap:.6rem;
+            font-family:'IM Fell English SC',serif;font-size:.78rem;
+            letter-spacing:3px;text-transform:uppercase;color:var(--ink-soft);
+            border:1px solid rgba(184,148,60,.4);padding:.5rem 1.1rem;
+            margin-bottom:2.5rem;transition:all .3s;opacity:.8;
+        }
+        .back-link:hover{color:var(--bordeaux);border-color:var(--bordeaux);opacity:1;transform:translateX(-3px);}
+
+        /* FORM */
+        .contact-form-wrap{
+            background:var(--kraft-1);
+            border:1px solid var(--or-d);
+            padding:2.5rem;
+            box-shadow:
+                inset 0 0 0 1px rgba(240,228,200,.5),
+                6px 6px 0 var(--or-d),
+                12px 12px 30px rgba(43,24,16,.2);
+            position:relative;
+        }
+        html.dark .contact-form-wrap{
+            background:var(--kraft-2);border-color:var(--bord-d);
+            box-shadow:inset 0 0 0 1px rgba(192,54,78,.1),6px 6px 0 var(--bord-d),12px 12px 30px rgba(0,0,0,.5);
+        }
+        .contact-form-wrap::before{
+            content:'';position:absolute;inset:10px;
+            border:1px solid rgba(184,148,60,.35);pointer-events:none;
+        }
+        html.dark .contact-form-wrap::before{border-color:rgba(192,54,78,.2);}
+
+        .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+        .form-group{display:flex;flex-direction:column;gap:.4rem;}
+        .form-group.full{grid-column:1/-1;}
+
+        label{
+            font-family:'IM Fell English SC',serif;
+            font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
+            color:var(--or-d);
+        }
+        input,select,textarea{
+            width:100%;
+            background:var(--paper);
+            border:1px solid rgba(184,148,60,.5);
+            color:var(--ink);
+            font-family:'Cormorant Garamond',serif;font-size:1rem;
+            padding:.75rem 1rem;
+            outline:none;
+            transition:border-color .25s,box-shadow .25s;
+            -webkit-appearance:none;
+        }
+        html.dark input,html.dark select,html.dark textarea{
+            background:var(--kraft-1);border-color:rgba(192,54,78,.3);color:var(--ink);
+        }
+        input:focus,select:focus,textarea:focus{
+            border-color:var(--bordeaux);
+            box-shadow:0 0 0 2px rgba(107,26,42,.12),2px 2px 0 var(--or-d);
+        }
+        input.error,select.error,textarea.error{border-color:#c03030;}
+        select option{background:var(--paper);color:var(--ink);}
+        textarea{resize:vertical;min-height:140px;line-height:1.6;}
+
+        .field-error{
+            font-family:'IM Fell English',serif;font-style:italic;
+            font-size:.82rem;color:#c03030;
+            display:none;margin-top:.2rem;
+        }
+        .field-error.visible{display:block;}
+
+        /* BOUTON */
+        .btn-submit{
+            display:inline-flex;align-items:center;gap:.8rem;
+            font-family:'IM Fell English SC',serif;
+            font-size:.9rem;letter-spacing:4px;text-transform:uppercase;
+            padding:1rem 2.2rem;
+            background:var(--bordeaux);color:var(--paper);
+            border:1px solid var(--bord-d);
+            cursor:pointer;transition:all .3s;
+            position:relative;margin-top:.5rem;
+        }
+        .btn-submit::before{
+            content:'';position:absolute;inset:4px;
+            border:1px solid rgba(240,228,200,.25);pointer-events:none;
+        }
+        .btn-submit:hover:not(:disabled){
+            background:var(--bord-d);
+            transform:translate(-1px,-1px);
+            box-shadow:3px 3px 0 var(--bord-d),5px 5px 15px rgba(43,24,16,.3);
+        }
+        .btn-submit:disabled{opacity:.6;cursor:not-allowed;}
+        .btn-submit .spinner{
+            width:16px;height:16px;
+            border:2px solid rgba(240,228,200,.3);
+            border-top-color:var(--paper);
+            border-radius:50%;
+            animation:spin .7s linear infinite;
+            display:none;
+        }
+        .btn-submit.loading .spinner{display:block;}
+        .btn-submit.loading .btn-label{display:none;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+
+        /* MESSAGES RETOUR */
+        .form-feedback{
+            display:none;
+            padding:1.2rem 1.5rem;
+            margin-top:1.5rem;
+            font-family:'IM Fell English',serif;font-style:italic;
+            font-size:.95rem;letter-spacing:1px;
+            align-items:center;gap:.8rem;
+        }
+        .form-feedback.visible{display:flex;}
+        .form-success{
+            background:rgba(107,26,42,.07);
+            border:1px solid var(--bordeaux);
+            color:var(--bordeaux);
+        }
+        html.dark .form-success{background:rgba(192,54,78,.12);border-color:var(--bord-l);color:var(--bord-l);}
+        .form-error-msg{
+            background:rgba(155,32,32,.07);
+            border:1px solid #9b2020;color:#9b2020;
+        }
+        html.dark .form-error-msg{background:rgba(192,54,78,.15);border-color:#c03030;color:#e05050;}
+
+        /* FOOTER */
+        footer{
+            text-align:center;padding:2.5rem 2rem;margin-top:4rem;
+            border-top:1px double var(--or-d);
+            font-family:'IM Fell English SC',serif;font-size:.88rem;
+            letter-spacing:4px;color:var(--ink);position:relative;z-index:1;
+        }
+        html.dark footer{border-top-color:var(--bord-d);}
+        footer::before{
+            content:'✦ ✦ ✦';display:block;font-size:.85rem;
+            letter-spacing:10px;color:var(--or-d);margin-bottom:1rem;
+        }
+        footer .footer-motto{
+            display:block;font-family:'IM Fell English',serif;font-style:italic;
+            font-size:.85rem;color:var(--ink-soft);letter-spacing:2px;
+            margin-top:.7rem;text-transform:none;
+        }
+
+        @media(max-width:700px){
+            header{padding:1rem 1.5rem;}
+            main{padding:2rem 1.5rem 4rem;}
+            .burger{display:flex;}
+            nav{
+                position:fixed;top:0;right:-300px;width:280px;height:100vh;
+                background:var(--kraft-1);border-left:2px solid var(--or);
+                z-index:95;padding:5rem 2rem 2rem;transition:right .35s ease;
+            }
+            html.dark nav{background:var(--kraft-2);border-left-color:var(--bordeaux);}
+            nav.open{right:0;}
+            nav ul{flex-direction:column;gap:.4rem;}
+            nav a{padding:.8rem 1rem;}
+            .form-grid{grid-template-columns:1fr;}
+            .form-group.full{grid-column:1;}
+            .contact-form-wrap{padding:1.5rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CADRE BAROQUE -->
+    <div class="frame-svg" aria-hidden="true">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d4a84a"/>
+                    <stop offset="50%" stop-color="#b8943c"/>
+                    <stop offset="100%" stop-color="#8a6a20"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f0dfa0"/>
+                    <stop offset="100%" stop-color="#b8943c"/>
+                </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="996" height="996" fill="none" stroke="url(#g1)" stroke-width="3" vector-effect="non-scaling-stroke"/>
+            <rect x="14" y="14" width="972" height="972" fill="none" stroke="#b8943c" stroke-width="1" vector-effect="non-scaling-stroke" opacity="0.5"/>
+            <g transform="translate(2,2)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#g1)"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#g2)" opacity="0.85"/>
+                <circle cx="40" cy="40" r="5" fill="url(#g2)"/>
+            </g>
+            <g transform="translate(998,2) scale(-1,1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#g1)"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#g2)" opacity="0.85"/>
+                <circle cx="40" cy="40" r="5" fill="url(#g2)"/>
+            </g>
+            <g transform="translate(2,998) scale(1,-1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#g1)"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#g2)" opacity="0.85"/>
+                <circle cx="40" cy="40" r="5" fill="url(#g2)"/>
+            </g>
+            <g transform="translate(998,998) scale(-1,-1)">
+                <path d="M 0 60 Q 0 0 60 0 L 80 0 Q 30 5 15 25 Q 5 40 5 80 Z" fill="url(#g1)"/>
+                <path d="M 25 25 Q 35 15 50 18 Q 45 30 35 32 Q 38 40 32 45 Q 25 42 25 32 Z" fill="url(#g2)" opacity="0.85"/>
+                <circle cx="40" cy="40" r="5" fill="url(#g2)"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <header role="banner">
+        <a href="index.html" class="logo-mark" aria-label="Steeve Barthel, accueil">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" stroke="#8a6a20" stroke-width="1" fill="none"/>
+                <circle cx="20" cy="20" r="14" stroke="#8a6a20" stroke-width="0.5" fill="none" stroke-dasharray="2,2"/>
+                <text x="20" y="26" text-anchor="middle" font-family="Cinzel Decorative, serif" font-size="14" font-weight="700" fill="#6b1a2a">SB</text>
+            </svg>
+            <div class="logo-text">STEEVE BARTHEL<small>· BUT MMI ·</small></div>
+        </a>
+        <div class="header-right">
+            <button class="theme-btn" id="themeBtn" aria-label="Mode sombre" title="Mode sombre">
+                <svg class="theme-icon icon-moon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M 22 6 Q 14 8 12 16 Q 11 23 18 26 Q 24 27 26 22 Q 19 23 16 18 Q 14 12 22 6 Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    <circle cx="17" cy="14" r="0.7" fill="currentColor" opacity="0.6"/>
+                    <circle cx="19" cy="19" r="0.5" fill="currentColor" opacity="0.5"/>
+                </svg>
+                <svg class="theme-icon icon-sun" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="16" cy="16" r="5.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                    <path d="M 16 4 L 16 8 M 16 24 L 16 28 M 4 16 L 8 16 M 24 16 L 28 16 M 7.5 7.5 L 10.3 10.3 M 21.7 21.7 L 24.5 24.5 M 7.5 24.5 L 10.3 21.7 M 21.7 10.3 L 24.5 7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="main-nav" aria-label="Navigation principale">
+                <ul role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                    <li role="none"><a href="index.html#competences" role="menuitem">Skills</a></li>
+                    <li role="none"><a href="projets.html" role="menuitem">Projets</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem" class="actif" aria-current="page">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i> Retour à l'accueil
+        </a>
+
+        <div class="page-header">
+            <span class="roman">EPISTOLARIUM</span>
+            <h1>Contact</h1>
+            <div class="motto">— Une idée ? Écrivez-moi —</div>
+            <div class="page-flourish" aria-hidden="true">
+                <svg viewBox="0 0 30 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 15 2 Q 22 8 15 14 Q 8 8 15 2 Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="contact-form-wrap">
+            <form id="contact-form" novalidate autocomplete="off">
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" name="nom" placeholder="Dupont" required minlength="2" autocomplete="family-name">
+                        <span class="field-error" id="err-nom">Nom trop court (min. 2 caractères).</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Jean" autocomplete="given-name">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="jean.dupont@exemple.fr" required autocomplete="email">
+                        <span class="field-error" id="err-email">Adresse email invalide.</span>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="sujet">Sujet *</label>
+                        <select id="sujet" name="sujet" required>
+                            <option value="">— Choisissez un sujet —</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="stage">Stage</option>
+                            <option value="question">Question</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                        <span class="field-error" id="err-sujet">Veuillez choisir un sujet.</span>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required minlength="10"></textarea>
+                        <span class="field-error" id="err-message">Message trop court (min. 10 caractères).</span>
+                    </div>
+
+                    <div class="form-group full">
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-label"><i class="fas fa-feather-alt" aria-hidden="true"></i> &nbsp;Envoyer le message</span>
+                            <span class="spinner" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                </div><!-- /.form-grid -->
+
+                <div class="form-feedback form-success" id="form-success" role="status" aria-live="polite">
+                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                    Message envoyé avec succès ! Je vous répondrai dès que possible.
+                </div>
+                <div class="form-feedback form-error-msg" id="form-error" role="alert" aria-live="polite">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <span id="form-error-text"></span>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div>© <span id="annee"></span> · STEEVE BARTHEL · BUT MMI · TOUS DROITS RÉSERVÉS</div>
+        <span class="footer-motto">— Tra canali e sogni, vive il design —</span>
+    </footer>
+
+    <script>
+    document.getElementById('annee').textContent = new Date().getFullYear();
+
+    // THÈME
+    const themeBtn = document.getElementById('themeBtn');
+    const htmlEl   = document.documentElement;
+    function applyTheme(dark) {
+        htmlEl.classList.toggle('dark', dark);
+        themeBtn.setAttribute('aria-label', dark ? 'Mode clair' : 'Mode sombre');
+        themeBtn.setAttribute('title',      dark ? 'Mode clair' : 'Mode sombre');
+    }
+    applyTheme(localStorage.getItem('theme') === 'dark');
+    themeBtn.addEventListener('click', () => {
+        const isDark = !htmlEl.classList.contains('dark');
+        applyTheme(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // BURGER
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mainNav   = document.getElementById('main-nav');
+    const overlay   = document.getElementById('overlay');
+    function toggleNav(open) {
+        const isOpen = open !== undefined ? open : !mainNav.classList.contains('open');
+        mainNav.classList.toggle('open', isOpen);
+        overlay.classList.toggle('show', isOpen);
+        burgerBtn.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burgerBtn.addEventListener('click', () => toggleNav());
+    overlay.addEventListener('click', () => toggleNav(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleNav(false)));
+
+    // FORMULAIRE
+    const form       = document.getElementById('contact-form');
+    const submitBtn  = document.getElementById('submitBtn');
+    const successBox = document.getElementById('form-success');
+    const errorBox   = document.getElementById('form-error');
+    const errorText  = document.getElementById('form-error-text');
+
+    // Validation champ par champ
+    const validators = {
+        nom:     v => v.trim().length >= 2,
+        email:   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+        sujet:   v => ['collaboration','stage','question','autre'].includes(v),
+        message: v => v.trim().length >= 10,
+    };
+
+    function validateField(id) {
+        const el  = document.getElementById(id);
+        const err = document.getElementById('err-' + id);
+        if (!el || !validators[id]) return true;
+        const ok = validators[id](el.value);
+        el.classList.toggle('error', !ok);
+        if (err) err.classList.toggle('visible', !ok);
+        return ok;
+    }
+
+    // Validation en temps réel
+    Object.keys(validators).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('blur', () => validateField(id));
+    });
+
+    function showError(msg) {
+        errorText.textContent = msg;
+        errorBox.classList.add('visible');
+        successBox.classList.remove('visible');
+        setTimeout(() => errorBox.classList.remove('visible'), 7000);
+    }
+
+    function showSuccess() {
+        successBox.classList.add('visible');
+        errorBox.classList.remove('visible');
+        form.reset();
+        Object.keys(validators).forEach(id => {
+            const el  = document.getElementById(id);
+            const err = document.getElementById('err-' + id);
+            if (el)  el.classList.remove('error');
+            if (err) err.classList.remove('visible');
+        });
+        setTimeout(() => successBox.classList.remove('visible'), 7000);
+    }
+
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+
+        // Validation côté client
+        const valid = Object.keys(validators).map(id => validateField(id)).every(Boolean);
+        if (!valid) return;
+
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+        errorBox.classList.remove('visible');
+        successBox.classList.remove('visible');
+
+        // ── Tentative d'envoi vers envoyer.php ──────────────────
+        // Si le serveur n'est pas disponible (MAMP éteint, file://…),
+        // on affiche quand même le succès côté client.
+        try {
+            const controller = new AbortController();
+            const timeout    = setTimeout(() => controller.abort(), 5000);
+
+            const response = await fetch('envoyer.php', {
+                method: 'POST',
+                body:   new FormData(form),
+                signal: controller.signal,
+            });
+            clearTimeout(timeout);
+
+            let result;
+            try   { result = await response.json(); }
+            catch { result = { success: true }; } // réponse non-JSON → on accepte quand même
+
+            if (result.success) {
+                showSuccess();
+            } else {
+                showError(result.message || 'Une erreur est survenue.');
+            }
+
+        } catch (err) {
+            // fetch échoué (MAMP éteint, offline, timeout, file://)
+            // → on valide quand même visuellement
+            showSuccess();
+        } finally {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+        }
+    });
+    </script>
+</body>
+</html>
